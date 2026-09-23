@@ -35,6 +35,12 @@
 html {
   color-scheme: light;
   scroll-behavior: smooth;
+
+  /* Always reserve the scrollbar gutter so centered content doesn't
+     shift a few pixels between short pages (no scrollbar) and tall
+     ones (scrollbar present). */
+  overflow-y: scroll;
+  scrollbar-gutter: stable;
 }
 
 body {
