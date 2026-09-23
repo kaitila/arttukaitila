@@ -86,23 +86,36 @@ a.site-name {
   max-width: var(--content-max);
   margin: 0 auto;
   padding: var(--space-page-y) 1.25rem;
+}
 
-  /* Edge fade: content softens into the background at the top/bottom of
-     the viewport rather than hard-cutting as it scrolls in and out. */
-  mask-image: linear-gradient(
-    to bottom,
-    transparent 0,
-    black 48px,
-    black calc(100% - 48px),
-    transparent 100%
-  );
-  -webkit-mask-image: linear-gradient(
-    to bottom,
-    transparent 0,
-    black 48px,
-    black calc(100% - 48px),
-    transparent 100%
-  );
+/* Edge fade: a fixed fog bank at the top and bottom of the viewport that
+   content scrolls underneath, so text softens into the background as it
+   passes the edge of the screen rather than hard-cutting. Fixed to the
+   viewport (not the content box) so the effect holds at every scroll
+   position, not just the very start/end of the page. */
+.fog {
+  position: fixed;
+  left: 0;
+  right: 0;
+  height: clamp(64px, 12vh, 160px);
+  pointer-events: none;
+  z-index: 10;
+}
+
+.fog-top {
+  top: 0;
+  background: linear-gradient(to bottom, rgba(250, 246, 238, 1) 0%, rgba(250, 246, 238, 0) 100%);
+}
+
+.fog-bottom {
+  bottom: 0;
+  background: linear-gradient(to top, rgba(250, 246, 238, 1) 0%, rgba(250, 246, 238, 0) 100%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fog {
+    display: none;
+  }
 }
 
 .site-footer {
@@ -267,11 +280,6 @@ a.site-name {
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
-  }
-
-  .content {
-    mask-image: none;
-    -webkit-mask-image: none;
   }
 
   [data-reveal] {
