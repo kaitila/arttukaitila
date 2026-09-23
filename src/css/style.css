@@ -145,12 +145,12 @@ a.site-name {
    ========================================================================== */
 
 .intro {
-  max-width: 46ch;
-  margin: 0 0 var(--space-title-y);
-  text-align: left;
+  max-width: 40ch;
+  margin: 0.75rem auto 0;
   color: var(--text-muted);
-  font-size: 0.9375rem;
+  font-size: 0.8125rem;
   line-height: 1.6;
+  letter-spacing: 0.01em;
 }
 
 .entry-list {
