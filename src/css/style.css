@@ -1,0 +1,278 @@
+/* ==========================================================================
+   arttukaitila.com — design tokens
+   Values from plan/02-design-system.md — see that doc before changing these.
+   ========================================================================== */
+
+:root {
+  --bg: #FAF6EE;
+  --bg-raised: #F5EFE2;
+  --text: #2B2620;
+  --text-muted: #6B6355;
+  --accent: #8A5A3B;
+  --border: #E7DFCC;
+
+  --font-serif: "Lora", Georgia, serif;
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  --content-max: 680px;
+
+  --space-page-y: 9rem;
+  --space-title-y: 5rem;
+  --space-entry-gap: 3rem;
+  --space-paragraph: 1.5em;
+}
+
+/* ==========================================================================
+   Reset & base
+   ========================================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: light;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: 1.125rem;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+a:hover,
+a:focus-visible {
+  text-decoration: underline;
+}
+
+img {
+  max-width: 100%;
+}
+
+/* ==========================================================================
+   Layout shell
+   ========================================================================== */
+
+.site-header {
+  text-align: center;
+  padding: 3rem 1.25rem 0;
+}
+
+.site-name {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: var(--text);
+  margin: 0;
+}
+
+a.site-name {
+  color: var(--text);
+}
+
+.content {
+  max-width: var(--content-max);
+  margin: 0 auto;
+  padding: var(--space-page-y) 1.25rem;
+
+  /* Edge fade: content softens into the background at the top/bottom of
+     the viewport rather than hard-cutting as it scrolls in and out. */
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0,
+    black 48px,
+    black calc(100% - 48px),
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0,
+    black 48px,
+    black calc(100% - 48px),
+    transparent 100%
+  );
+}
+
+.site-footer {
+  text-align: center;
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+
+.site-footer .copyright {
+  margin-top: 0.5rem;
+}
+
+/* ==========================================================================
+   Home page
+   ========================================================================== */
+
+.intro {
+  max-width: 52ch;
+  margin: 0 auto var(--space-title-y);
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 1rem;
+}
+
+.entry-list {
+  list-style: none;
+  margin: 0 0 6rem;
+  padding: 0;
+}
+
+.entry-row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: var(--space-entry-gap);
+}
+
+.entry-row:last-child {
+  margin-bottom: 0;
+}
+
+.entry-title {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: 1.4rem;
+  color: var(--text);
+}
+
+.entry-title:hover,
+.entry-title:focus-visible {
+  color: var(--accent);
+}
+
+.entry-date {
+  display: block;
+  margin-top: 0.4rem;
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  letter-spacing: 0.02em;
+}
+
+/* ==========================================================================
+   Entry page
+   ========================================================================== */
+
+.back-link {
+  display: block;
+  text-align: center;
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+
+.entry-header {
+  text-align: center;
+  margin: 2.5rem 0 var(--space-title-y);
+}
+
+.entry-title-page {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: 2.25rem;
+  margin: 0;
+  line-height: 1.25;
+}
+
+.entry-header .entry-date {
+  margin-top: 1rem;
+}
+
+.entry-body {
+  text-align: left;
+}
+
+.entry-body p {
+  margin: 0 0 var(--space-paragraph);
+}
+
+.entry-body p:last-child {
+  margin-bottom: 0;
+}
+
+.entry-page .site-footer {
+  margin-top: 6rem;
+}
+
+.entry-page .back-link {
+  margin-bottom: 1rem;
+}
+
+/* ==========================================================================
+   404 page
+   ========================================================================== */
+
+.not-found {
+  text-align: center;
+}
+
+.page-title {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: 2.25rem;
+  margin: 0 0 1rem;
+}
+
+.muted-line {
+  color: var(--text-muted);
+  font-size: 1rem;
+  margin: 0 0 2.5rem;
+}
+
+/* ==========================================================================
+   Scroll-reveal
+   ========================================================================== */
+
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+[data-reveal].is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .content {
+    mask-image: none;
+    -webkit-mask-image: none;
+  }
+
+  [data-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* ==========================================================================
+   Small screens
+   ========================================================================== */
+
+@media (max-width: 480px) {
+  :root {
+    --space-page-y: 5rem;
+    --space-title-y: 3rem;
+    --space-entry-gap: 2.25rem;
+  }
+
+  .entry-title-page {
+    font-size: 1.8rem;
+  }
+}

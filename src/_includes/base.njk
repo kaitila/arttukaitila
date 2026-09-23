@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% if title and page.url != "/" %}{{ title }} — {% endif %}Arttu Kaitila</title>
+  <meta name="description" content="{{ description or "Arttu Kaitila — writing." }}">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    {% if page.url == "/" %}
+      <h1 class="site-name">Arttu Kaitila</h1>
+    {% else %}
+      <a class="site-name" href="/">Arttu Kaitila</a>
+    {% endif %}
+  </header>
+
+  <main class="content">
+    {{ content | safe }}
+  </main>
+
+  <!-- GoatCounter embed goes here — see plan/05-roadmap.md step 13 -->
+  <script src="/js/scroll.js" defer></script>
+</body>
+</html>

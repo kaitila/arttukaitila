@@ -1,0 +1,18 @@
+---
+layout: base.njk
+---
+<a class="back-link" href="/">&larr; back</a>
+
+<header class="entry-header">
+  <h1 class="entry-title-page">{{ title }}</h1>
+  <time class="entry-date" datetime="{{ date | htmlDateString }}">{{ date | readableDate }}</time>
+</header>
+
+<div class="entry-body">
+  {{ content | safe }}
+</div>
+
+<footer class="site-footer">
+  <a class="back-link" href="/">&larr; back</a>
+  <div class="copyright">Arttu Kaitila &copy; {{ currentYear }}</div>
+</footer>
