@@ -45,8 +45,7 @@ Opens a local server with live-reload at `http://localhost:8080`.
 
 ## Notes
 
-- Home page intro text is a placeholder (`[INTRO TEXT PLACEHOLDER — replace
-  with your own]` in `src/_includes/home.njk`) — swap it for real copy
-  whenever you're ready.
+- Home page intro text lives in `src/_includes/home.njk` — edit the `.intro`
+  paragraph whenever you want to change it.
 - GoatCounter analytics isn't wired up yet — there's a marked spot for the
   embed script in `src/_includes/base.njk`.
