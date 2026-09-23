@@ -66,6 +66,8 @@ img {
    ========================================================================== */
 
 .site-header {
+  position: relative;
+  z-index: 20;
   text-align: center;
   padding: 3rem 1.25rem 0;
 }
