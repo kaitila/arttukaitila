@@ -138,12 +138,39 @@ a.site-name {
 
 .site-footer {
   text-align: center;
-  font-size: 0.875rem;
+  font-size: 0.8125rem;
   color: var(--text-muted);
 }
 
 .site-footer .copyright {
   margin-top: 0.5rem;
+}
+
+.social-links {
+  margin-bottom: 0.6rem;
+}
+
+.social-link {
+  display: inline-block;
+  color: var(--text-muted);
+  opacity: 0.85;
+  line-height: 0;
+}
+
+.social-link + .social-link {
+  margin-left: 0.75rem;
+}
+
+.social-link:hover,
+.social-link:focus-visible {
+  color: var(--accent);
+  opacity: 1;
+}
+
+.social-link svg {
+  width: 14px;
+  height: 14px;
+  fill: currentColor;
 }
 
 /* ==========================================================================
@@ -254,8 +281,7 @@ a.site-name {
   opacity: 1;
 }
 
-.entry-page .site-footer {
-  text-align: left;
+.back-to-top + .site-footer {
   margin-top: 3rem;
 }
 
@@ -265,6 +291,10 @@ a.site-name {
 
 .not-found {
   text-align: center;
+}
+
+.not-found + .site-footer {
+  margin-top: 5rem;
 }
 
 .page-title {
