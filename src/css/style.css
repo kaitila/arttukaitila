@@ -231,6 +231,7 @@ a.site-name {
   font-size: 0.8125rem;
   color: var(--text-muted);
   opacity: 0.85;
+  isolation: isolate;
 }
 
 .back-link:hover,
@@ -242,6 +243,7 @@ a.site-name {
 .entry-header {
   text-align: center;
   margin: 3rem 0 var(--space-title-y);
+  isolation: isolate;
 }
 
 .entry-title-page {
@@ -250,6 +252,8 @@ a.site-name {
   font-size: 2.25rem;
   margin: 0;
   line-height: 1.25;
+  transition: transform 0.12s linear;
+  will-change: transform;
 }
 
 .entry-header .entry-date {
@@ -260,6 +264,15 @@ a.site-name {
   text-align: left;
   font-family: var(--font-serif);
   font-weight: 400;
+  transition: filter 0.12s linear, transform 0.12s linear;
+  will-change: filter, transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .entry-body,
+  .entry-title-page {
+    transition: none;
+  }
 }
 
 .entry-body p {
