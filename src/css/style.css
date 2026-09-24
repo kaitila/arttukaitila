@@ -257,6 +257,8 @@ a.site-name {
 
 .entry-body {
   text-align: left;
+  font-family: var(--font-serif);
+  font-weight: 400;
 }
 
 .entry-body p {
